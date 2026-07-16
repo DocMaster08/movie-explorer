@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
     }
 
     const startSearch = () => {
-        if (searchInput === '') return
+        if (!searchInput.trim()) return
         onSearch(searchInput)
     }
 
