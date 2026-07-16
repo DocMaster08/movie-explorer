@@ -1,7 +1,9 @@
-import { useState } from 'react'
-  
+import HomePage from './pages/HomePage'
+
 function App() {
-  return <div className=''></div>
+  return <div className=''>
+    <HomePage/>
+  </div>
 }
 
 export default App
