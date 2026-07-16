@@ -10,7 +10,8 @@ function HomePage() {
 
   return (
     <div>
-        <Header onSearchStart={handleSearch}></Header>
+        <Header onSearch={handleSearch}></Header>
+        <p className="text-white">current search: {searchTerm}</p>
     </div>
   )
 }
