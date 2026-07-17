@@ -24,7 +24,7 @@ export async function searchMovies(query) {
 }
 
 export async function getPopularMovies(){
-    const res = await fetch(`${baseUrl}/movie/popular?language=en-US&page=1`, options)
+    const res = await fetch(`${baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`, options)
 
     if (!res.ok){
         throw new Error("Failed to fetch popular movies")

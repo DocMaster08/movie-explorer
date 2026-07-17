@@ -11,7 +11,7 @@ function MovieCard({ movie }) {
                     <div>
                         <Star fill="yellow" strokeWidth={0}></Star>
                     </div>
-                    <p>{vote_average}</p>
+                    <p>{vote_average.toFixed(2)}</p>
                     <p>({vote_count})</p>
                 </div>
                 <h1 className="font-bold text-xl text-white ">{title}</h1>
