@@ -1,8 +1,7 @@
 const token = import.meta.env.VITE_TMDB_API_TOKEN
+const baseUrl = 'https://api.themoviedb.org/3'
 
-export async function searchMovies(query) {
-    
-    const options = {
+const options = {
         method: 'GET',
         headers: {
             accept: 'application/json',
@@ -10,8 +9,28 @@ export async function searchMovies(query) {
         }
     };
 
-    fetch(`https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}`, options)
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .catch(err => console.error(err));
+export async function searchMovies(query) {
+    
+
+    const res = await fetch(`${baseUrl}/search/movie?include_adult=true&language=en-US&page=1&query=${encodeURIComponent(query)}`, options)
+
+    if (!res.ok){
+        throw new Error("Failed to fetch movies")
+    }   
+
+    const data = await res.json()
+
+    return data.results
+}
+
+export async function getPopularMovies(){
+    const res = await fetch(`${baseUrl}/movie/popular?language=en-US&page=1`, options)
+
+    if (!res.ok){
+        throw new Error("Failed to fetch popular movies")
+    }
+
+    const data = await res.json()
+    
+    return data.results
 }
