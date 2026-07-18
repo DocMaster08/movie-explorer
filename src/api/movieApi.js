@@ -34,3 +34,16 @@ export async function getPopularMovies(){
     
     return data.results
 }
+
+export async function getMovie(id){
+    const res = await fetch(`${baseUrl}/movie/${id}`,options)
+
+    if (!res.ok){
+        throw new Error("Failed to fetch movie!")
+    }
+    const data = await res.json()
+
+    return data
+
+
+}

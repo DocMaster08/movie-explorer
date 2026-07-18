@@ -16,7 +16,6 @@ function HomePage() {
         const fetchMovies = async () => {
             try {
                 const results = await searchMovies(searchTerm)
-                console.log(results)
                 setMovies(results)
 
             } catch (error) {
@@ -56,6 +55,10 @@ function HomePage() {
 
     const handleClickBack = () => {
         setSearchTerm('')
+    }
+
+    if (error){
+        return <p className="text-red-300 font-bold text-2xl p-10">{error}</p>
     }
 
     return (
