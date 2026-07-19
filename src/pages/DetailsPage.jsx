@@ -35,7 +35,7 @@ function DetailsPage() {
             <Link to={'/'} className="text-gray-800 absolute top-2 left-10 bg-amber-200 rounded-full p-1 cursor-pointer"><MoveLeft size={20}></MoveLeft></Link>
 
             {loading ?
-                <p>Loading...</p>
+                <p className="text-white text-2xl text-center p-40 font-bold">Loading...</p>
                 :
                 <>{movie ?
                     <div className="text-white flex flex-col gap-3 items-center mt-5">

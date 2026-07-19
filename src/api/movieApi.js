@@ -47,3 +47,8 @@ export async function getMovie(id){
 
 
 }
+
+export async function getFavoriteMovies(favorites){
+    const promises = Array.from(favorites).map(favoriteId => getMovie(favoriteId))
+    return Promise.all(promises);   
+}
